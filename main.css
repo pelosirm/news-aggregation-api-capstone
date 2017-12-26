@@ -1,0 +1,229 @@
+
+html,body {
+	height:100%;
+	width:100%;
+	margin:0;
+}
+
+header {
+	height:75px;
+	width: 100%;
+}
+
+h1,h2,h3,h4,h5,h6, p,a  {
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+}
+
+.navbar {
+	overflow: hidden;
+	background-color: black;
+  position: fixed;
+  top: 0;
+	height:75px;
+	width: 100%;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    padding-top: 20px;
+    text-decoration: none;
+}
+
+.navbar a {
+  font-size: 18px;
+  font-weight: 300;
+  font-kerning: 10;
+}
+
+.search-form {
+  float:right;
+  margin-top:18px;
+  right:20;
+}
+
+input[type=search] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  font-style: 'Oswald', sans-serif;
+  font-weight: 300;
+  font-size: 100%;
+}
+
+
+input[type=search] {
+  background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+  border: solid 1px #ccc;
+  padding: 9px 10px 9px 32px;
+  width: 75px;
+  -webkit-border-radius: 10em;
+  -moz-border-radius: 10em;
+  border-radius: 10em;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  transition: all .5s;
+}
+
+input[type=search]:focus {
+  width: 130px;
+  background-color: #fff;
+  border-color: #66CC75;
+  -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+  -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+  box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+
+.intro-info {
+  position: relative;
+  display: table;
+  width: 100%;
+  height: 100%;
+  top:50;
+  padding-top: 50px;
+  background: url("https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=1650&q=80") no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.intro-info h1 {
+  font-size: 80px;
+  line-height: 0;
+
+}
+
+.intro-info p {
+  font-size: 28px;
+  font-weight:300;
+}
+
+.inner-content {
+	text-align: center;
+  margin: 0;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -45%);
+  padding:50px;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.54);
+  border-radius: 10px;
+   color: #FFFFFF;
+}
+
+/* Custom dropdown */
+.source-dropdown {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 10px;
+  font-size: 1.2em;
+}
+
+.source-dropdown select {
+ /* background-color: #1abc9c;*/
+  background-color: orange;
+  color: #fff;
+  font-size: inherit;
+  padding: .5em;
+  padding-right: 2.5em; 
+  border: 0;
+  margin: 0;
+  border-radius: 3px;
+  text-indent: 0.01px;
+  text-overflow: '';
+  -moz-appearance: none;
+  -webkit-appearance:none;
+  appearance: none;
+}
+
+
+.source-dropdown::before,
+.source-dropdown::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.source-dropdown::after { /*  Custom dropdown arrow */
+  content: "\25BC";
+  height: 1em;
+  font-size: .625em;
+  line-height: 1;
+  right: 1.2em;
+  top: 50%;
+  margin-top: -.5em;
+}
+
+.source-dropdown::before { /*  Custom dropdown arrow cover */
+  width: 2em;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0 3px 3px 0;
+  background-color: rgba(0,0,0,.2);
+}
+
+.source-dropdown::after {
+  color: rgba(0,0,0,.6);
+}
+
+input[type=submit] {
+    padding: 10px 15px 11px;
+    font-size: 18px;
+    background-color: orange;
+    font-weight: 300;
+    color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid orange;
+    font-family: 'Oswald', sans-serif;
+    width:150px;
+
+}
+
+.news-content {
+  text-align:center;
+}
+
+img {
+  width:100%;
+  height: 150px;
+}
+
+.light {
+  font-weight:300;
+}
+
+footer {
+  height:200px;
+  width:100%;
+  background-color: black;
+  margin-top: 0;
+  color:white;
+}
+
+.contact-info {
+  padding-top: 30px;
+  text-align:right;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+
+  .intro-info h1 {
+    font-size: 36px;
+  }
+
+  .intro-info p {
+    font-size: 18px;
+  }
+}
+
+
+
+
