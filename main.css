@@ -188,6 +188,7 @@ input[type=submit] {
 
 .news-content {
   text-align:center;
+  margin-top: 100px;
 }
 
 .news-image {
@@ -251,7 +252,6 @@ footer {
     transform: translate(-50%, -30%);
     padding:20px 10px 20px 10px;
   }
-
 
   .intro-info {
     height:70%;
