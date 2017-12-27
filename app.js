@@ -1,79 +1,17 @@
 
-//handle source selection 
-function handleSourceInput(){
 
-    $( "select" )
-        .change(function () {
-            let str = "";
-            let formattedString = ''
-            $( "select option:selected" ).each(function() {
-                str += $( this ).val();
-                formattedString = $(this).text()
-
-            });
-        $('.source-query').html(formattedString)
-        getSourceResult(str)
-        $('.news-content').show();
-        scrollTop()
-
-    })
-
-
-}
-
-// handle search query
-function handleSearchInput() {
-   
-    $(".search-form").on('submit', function (e) {
-          event.preventDefault()
-
-          let query = $('#search-input').val()
-          $('.intro-info').hide();
-          $('.news-content').show();
-          $('#search-input').val('')
-          getSearchResult(query)
-          $('.source-query').html(query)
-          $('.page').text(1)
-          scrollTop();
-
-    });
-}
-
-
-// handle additional request
-function handleMoreResults() {
-    $('.get-more-results').on('click', function() {
-        $('.intro-info').hide();
-
-
-        let query = $('.source-query').text()
-        let int = parseInt($('.page').text()) + 1
-
-        getMoreResults(query,int)
-
-        $('.page').text(int)
-
-        scrollTop();
-
-    })
-}
+// functions that deal with page movement
 
 function openPage() {
     $('.news-content').hide()
 }
 
-function topOfPage() {
-    $('#top').on('click',function(){
-        $('html, body').animate({ scrollTop: 0 }, 'slow');
-    })
+function hideIntro() {
+    $('.intro-info').hide();
 }
 
-function backToMain() {
-    $('a').on('click',function(){
-        location.reload();
-        $('.intro-info').show()
-        $('.news-content').hide()
-    })
+function showNews() {
+    $('.news-content').show();
 }
 
 function scrollTop() {
@@ -81,6 +19,8 @@ function scrollTop() {
         scrollTop: $('#newsResponse').offset().top - 100
     });
 }
+
+//test image for null if it doesn't exist, then image not found
 
 function testImage(URL) {
     let imgSrc = ''
@@ -94,6 +34,8 @@ function testImage(URL) {
     return imgSrc
 }
 
+//create html output for api response
+
 function createHtmlOutput(results) {
 
     let articles = results.articles
@@ -103,12 +45,18 @@ function createHtmlOutput(results) {
     for (let i = 0; i < articles.length; i++) {
 
 
-            rowHtml += '<div class="col-3">'
-            rowHtml += '<img src="' + testImage(articles[i].urlToImage) +'">'
-            rowHtml += '<p>' + articles[i].title +' <br><br><span class="light">' + articles[i].description +'</span></p>'
+            rowHtml += '<div class="col-4">'
+            rowHtml += '<a href="' + articles[i].url + '" target="_blank"'+ 'aria-label="'+articles[i].title+'">'
+            rowHtml += '<div class="news-image" style="background-image: url(' + testImage(articles[i].urlToImage) + ')"></div>';
+            rowHtml += '</a>'
+            rowHtml += '<p>' + articles[i].title +' <br><br><span class="light">' + articles[i].description +'</span>'
+            rowHtml += '<br><br>'
+            rowHtml += 'Source: ' + articles[i].source.name + '</p>'
             rowHtml += '</div>'
 
-            if (i && ((i+1) % 4 === 0) || i === articles.length - 1) {
+            //every third iteration close row div and reset 
+
+            if (i && ((i+1) % 3 === 0) || i === articles.length - 1) {
 
                 rowHtml += '</div>'
                 htmlOutput += rowHtml
@@ -117,12 +65,14 @@ function createHtmlOutput(results) {
 
     }
 
+    //update DOM with news articles
      $(".news-articles").html(htmlOutput);
 
 }
 
 //api call for sources
 
+// get top headlines from a certain source
 function getSourceResult(source) {
     var result = $.ajax({
         url: "https://newsapi.org/v2/top-headlines?sources="+source+"&apiKey=96a8250a853b4599892825738ac6954c",
@@ -131,9 +81,9 @@ function getSourceResult(source) {
     })
     
     .done(function(result) {
-        let resultArticles = result
-        createHtmlOutput(resultArticles)
-        
+        //html output response
+        createHtmlOutput(result)
+    
     })
     
     .fail(function(jqXHR, error, errorThrown) {
@@ -144,19 +94,19 @@ function getSourceResult(source) {
 
 }
 
+
+//get search results
 function getSearchResult(query) {
     var result = $.ajax({
-        url: 'https://newsapi.org/v2/everything?q="'+query+'"&language=en&apiKey=96a8250a853b4599892825738ac6954c',
+        url: 'https://newsapi.org/v2/top-headlines?q='+query+'&language=en&sortBy=popularity&apiKey=96a8250a853b4599892825738ac6954c',
         type: 'GET',
         dataType: "json"
     })
     
     .done(function(result) {
-        let resultArticles = result
-        console.log(resultArticles)
-        createHtmlOutput(resultArticles)
 
-        
+        createHtmlOutput(result)
+
     })
     
     .fail(function(jqXHR, error, errorThrown) {
@@ -167,6 +117,7 @@ function getSearchResult(query) {
 
 }
 
+//get additional results by page
 function getMoreResults(query,int) {
     var result = $.ajax({
         url: 'https://newsapi.org/v2/everything?q="'+query+'"&language=en&page='+int+'&apiKey=96a8250a853b4599892825738ac6954c',
@@ -175,11 +126,7 @@ function getMoreResults(query,int) {
     })
     
     .done(function(result) {
-        let resultArticles = result
-        console.log(resultArticles)
-        createHtmlOutput(resultArticles)
-
-        
+        createHtmlOutput(result)
     })
     
     .fail(function(jqXHR, error, errorThrown) {
@@ -191,14 +138,77 @@ function getMoreResults(query,int) {
 }
 
 
-function runApp() {
+$(document).ready(function () {
+
     openPage()
-    handleSourceInput()
-    handleSearchInput() 
-    handleMoreResults()
-    topOfPage()
-    backToMain()
+    // trigger events 
 
-}
+    // handle source input
 
-$(runApp)
+    $( "select" )
+        .change(function () {
+
+            //define input values
+            let selected = $( "select option:selected" ).val()
+            let formattedSelected = $( "select option:selected" ).text()
+
+            $('.source-query').html(formattedSelected)
+            $('.page-details').hide()
+            
+            //get results from api
+            getSourceResult(selected)
+
+            //handle screen
+            showNews()
+            scrollTop()
+
+    })
+
+    //handle search input
+    $(".search-form").on('submit', function (e) {
+          event.preventDefault()
+
+          let query = $('#search-input').val()
+
+          hideIntro()
+          showNews()
+          //reset search input value 
+          $('#search-input').val('')
+          //get results from api
+          getSearchResult(query)
+          $('.page-details').show()
+          $('.source-query').html(query)
+          $('.page').text(1)
+          scrollTop();
+
+    });
+
+    //reach out for more search results 
+    $('.get-more-results').on('click', function() {
+
+        let int = parseInt($('.page').text()) + 1
+        let query = $('.source-query').text()
+            getMoreResults(query,int)
+
+        $('.page').text(int)
+
+        scrollTop();
+
+    })
+
+
+    // scroll to top of page
+    $('#top').on('click',function(){
+        $('html, body').animate({ scrollTop: 0 }, 'slow');
+    })
+
+    //go home and reload page
+    $('.navbar a').on('click',function(){
+        location.reload();
+        $('.intro-info').show()
+        $('.news-content').hide()
+    })
+
+});
+
+

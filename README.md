@@ -16,6 +16,8 @@ The app's functionality includes:
 * The ability to search news by topic. 
 * The ability to randomize response data from sources. 
 
+You can find a working prototype of the app here: https://pelosirm.github.io/news-aggregation-api-capstone
+
 ## Technology
 * HTML
 * CSS
