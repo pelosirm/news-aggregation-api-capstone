@@ -16,7 +16,9 @@ The app's functionality includes:
 * The ability to search news by topic. 
 * The ability to randomize response data from sources. 
 
-You can find a working prototype of the app here: https://pelosirm.github.io/news-aggregation-api-capstone
+## Working Prototype
+You can access a working prototype of the app here: https://pelosirm.github.io/news-aggregation-api-capstone
+
 
 ## Technology
 * HTML
@@ -24,3 +26,12 @@ You can find a working prototype of the app here: https://pelosirm.github.io/new
 * JavaScript
 * jQuery
 * Ajax and APIs
+
+* The app uses AJAX JSON calls to the <a href="http://newsapi.org">newsapi.org</a> API to return the latest news.
+
+## Responsive
+App is built to be responsive across mobile, tablet, laptop, and desktop screen resolutions.
+
+## Development Roadmap
+This is v1.0 of the app, but future enhancements are expected to include:
+* more search parameters for more detailed news results. 
