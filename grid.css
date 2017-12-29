@@ -33,8 +33,6 @@
 }
 
 
-
-
 /* Non-mobile, grid */
 @media only screen and (min-width: 640px) {
   /* 3 columns, 3/12 in % */
@@ -59,8 +57,19 @@
   }
 }
 
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+
+      .col-3, .col-4, .col-6, .col-12 {
+    width: 100%;
+  }
+
+}
+/*
 @media only screen and (max-width: 640px) {
   .col-3, .col-4, .col-6, .col-12 {
     width: 100%;
   }
-}
+}*/
