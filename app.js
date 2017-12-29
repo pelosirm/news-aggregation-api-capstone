@@ -94,6 +94,27 @@ function getSourceResult(source) {
 
 }
 
+//get random results 
+function getRandomResult() {
+    var result = $.ajax({
+        url: "https://newsapi.org/v2/top-headlines?category=general&language=en&apiKey=96a8250a853b4599892825738ac6954c",
+        type: 'GET',
+        dataType: "json"
+    })
+    
+    .done(function(result) {
+        createHtmlOutput(articles)
+    
+    })
+    
+    .fail(function(jqXHR, error, errorThrown) {
+        console.log(jqXHR);
+        console.log(error);
+        console.log(errorThrown);
+    });
+
+}
+
 
 //get search results
 function getSearchResult(query) {
@@ -120,7 +141,7 @@ function getSearchResult(query) {
 //get additional results by page
 function getMoreResults(query,int) {
     var result = $.ajax({
-        url: 'https://newsapi.org/v2/everything?q="'+query+'"&language=en&page='+int+'&apiKey=96a8250a853b4599892825738ac6954c',
+        url: 'https://newsapi.org/v2/top-headlines?q="'+query+'"&language=en&page='+int+'&apiKey=96a8250a853b4599892825738ac6954c',
         type: 'GET',
         dataType: "json"
     })
@@ -156,7 +177,12 @@ $(document).ready(function () {
             $('.page-details').hide()
             
             //get results from api
-            getSourceResult(selected)
+            if (selected !== 'random') {
+                getSourceResult(selected)
+            } else {
+                getRandomResult()
+            }
+            
 
             //handle screen
             showNews()
