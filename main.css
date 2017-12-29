@@ -222,7 +222,7 @@ footer {
 
 /*specifications for mobile*/
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 640px) {
   .navbar i {
     margin-left: 20px;
     margin-right:0;
