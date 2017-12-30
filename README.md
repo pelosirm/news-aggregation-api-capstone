@@ -10,6 +10,26 @@ A responsive website that pulls from News Api (https://newsapi.org) in order to 
 
 3. As a user, I would like to randomize my request across sources in order to obtain a more broad spectrum of information. 
 
+## WireFrames 
+
+### Main Page
+![alt text](https://raw.githubusercontent.com/pelosirm/news-aggregation-api-capstone/master/readmeImg/main-page.jpg)
+### Source Results
+![alt text](https://raw.githubusercontent.com/pelosirm/news-aggregation-api-capstone/master/readmeImg/source-results.jpg)
+### Query Results
+![alt text](https://raw.githubusercontent.com/pelosirm/news-aggregation-api-capstone/master/readmeImg/query-results.jpg)
+
+## Screenshots 
+
+![alt text](https://raw.githubusercontent.com/pelosirm/news-aggregation-api-capstone/master/readmeImg/front-page.png)
+
+![alt text](https://raw.githubusercontent.com/pelosirm/news-aggregation-api-capstone/master/readmeImg/source-page.png)
+
+![alt text](https://raw.githubusercontent.com/pelosirm/news-aggregation-api-capstone/master/readmeImg/query-page.png)
+
+
+
+
 ## Functionality
 The app's functionality includes:
 * The ability to search top headlines by news source.
