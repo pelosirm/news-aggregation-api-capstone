@@ -13,21 +13,19 @@ A responsive website that pulls from News Api (https://newsapi.org) in order to 
 ## WireFrames 
 
 ### Main Page
-![alt text](https://raw.githubusercontent.com/pelosirm/news-aggregation-api-capstone/master/readmeImg/main-page.jpg)
+![alt text](https://github.com/pelosirm/news-aggregation-api-capstone/blob/master/readmeImg/main-page.jpg)
 ### Source Results
-![alt text](https://raw.githubusercontent.com/pelosirm/news-aggregation-api-capstone/master/readmeImg/source-results.jpg)
+![alt text](https://github.com/pelosirm/news-aggregation-api-capstone/blob/master/readmeImg/source-results.jpg)
 ### Query Results
-![alt text](https://raw.githubusercontent.com/pelosirm/news-aggregation-api-capstone/master/readmeImg/query-results.jpg)
+![alt text](https://github.com/pelosirm/news-aggregation-api-capstone/blob/master/readmeImg/query-results.jpg)
 
 ## Screenshots 
 
-![alt text](https://raw.githubusercontent.com/pelosirm/news-aggregation-api-capstone/master/readmeImg/front-page.png)
+![alt text](https://github.com/pelosirm/news-aggregation-api-capstone/blob/master/readmeImg/front-page.png)
 
-![alt text](https://raw.githubusercontent.com/pelosirm/news-aggregation-api-capstone/master/readmeImg/source-page.png)
+![alt text](https://github.com/pelosirm/news-aggregation-api-capstone/blob/master/readmeImg/source-page.png)
 
-![alt text](https://raw.githubusercontent.com/pelosirm/news-aggregation-api-capstone/master/readmeImg/query-page.png)
-
-
+![alt text](https://github.com/pelosirm/news-aggregation-api-capstone/blob/master/readmeImg/query-page.png)
 
 
 ## Functionality
