@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
+	    <!--
+        Mobile browsers like Fennec render pages in a virtual "window" (the viewport), usually wider than the screen, so they don't need to squeeze every page layout into a tiny window (which would break many non-mobile-optimized sites). Users can pan and zoom to see different areas of the page.
+        Mobile Safari introduced the "viewport meta tag" to let web developers control the viewport's size and scale. Many other mobile browsers now support this tag, although it is not part of any web standard.
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>News Aggregation</title>
 
 	<!--jquery-->
@@ -23,7 +28,7 @@
 <body>
 	<div class="navbar" id="navbar" role='navigation'>
 		<a href="#" aria-label = 'Go to homepage'><i class="fa fa-newspaper-o fa-2x" aria-hidden="true"></i></a>
-		<a href="#home" aria-label = 'Go to homepage'> News Pile </a>
+		<a href="#home" aria-label = 'Go to homepage' class="title"> News Pile </a>
 		<form class="search-form" role="search" aria-label="search news by topic">
 			<label for="search-input"></label>
   			<input id ="search-input" type="search" name="search" placeholder='Search..' aria-required>
