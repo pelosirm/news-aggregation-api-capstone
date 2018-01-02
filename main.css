@@ -2,8 +2,10 @@
 html,body {
 	height:100%;
 	width:100%;
+  padding-top: 20px; 
 	margin:0;
 }
+
 
 h1,h2,h3,h4,h5,h6, p,a  {
   font-family: 'Fira Sans Extra Condensed', sans-serif;
@@ -31,9 +33,19 @@ h1,h2,h3,h4,h5,h6, p,a  {
 }
 
 .navbar a {
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 300;
   font-kerning: 10;
+}
+
+.navbar::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.title {
+  padding-top: 24px !important;
 }
 
 
@@ -188,7 +200,7 @@ input[type=submit] {
 
 .news-content {
   text-align:center;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .news-content .col-4 {
@@ -208,18 +220,21 @@ input[type=submit] {
 
 /* footer information */
 footer {
-  height:200px;
+  height:70px;
   width:100%;
+  text-align: center;
   background-color: black;
   margin-top: 0;
   color:white;
 }
 
 .contact-info {
-  padding-top: 30px;
-  margin-left: 20px;
-  margin-right: 20px;
+  padding-top: 5px;
   text-align:center;
+}
+
+#top {
+  cursor: pointer
 }
 
 
@@ -263,7 +278,7 @@ footer {
 
   .news-content {
     text-align:center;
-    margin-top: 100px;
+    margin-top: 40px;
     margin-left: 20px;
     margin-right: 20px;
   }
@@ -278,7 +293,6 @@ footer {
 }
 
 
-
 @media only screen 
   and (min-device-width: 320px) 
   and (max-device-width: 667px) 
@@ -289,7 +303,6 @@ footer {
       left: 50%;
       transform: translate(-50%, -30%);
       width:100%;
-     /* padding:20px 10px 20px 10px;*/
     }
 
     .intro-info {

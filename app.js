@@ -65,6 +65,8 @@ function createHtmlOutput(results) {
 
     }
 
+
+
     //update DOM with news articles
      $(".news-articles").html(htmlOutput);
 
@@ -103,8 +105,7 @@ function getRandomResult() {
     })
     
     .done(function(result) {
-        createHtmlOutput(articles)
-    
+        createHtmlOutput(result)    
     })
     
     .fail(function(jqXHR, error, errorThrown) {
@@ -138,25 +139,6 @@ function getSearchResult(query) {
 
 }
 
-//get additional results by page
-function getMoreResults(query,int) {
-    var result = $.ajax({
-        url: 'https://newsapi.org/v2/top-headlines?q="'+query+'"&language=en&page='+int+'&apiKey=96a8250a853b4599892825738ac6954c',
-        type: 'GET',
-        dataType: "json"
-    })
-    
-    .done(function(result) {
-        createHtmlOutput(result)
-    })
-    
-    .fail(function(jqXHR, error, errorThrown) {
-        console.log(jqXHR);
-        console.log(error);
-        console.log(errorThrown);
-    });
-
-}
 
 
 $(document).ready(function () {
@@ -202,25 +184,13 @@ $(document).ready(function () {
           $('#search-input').val('')
           //get results from api
           getSearchResult(query)
-          $('.page-details').show()
+          
           $('.source-query').html(query)
-          $('.page').text(1)
+
           scrollTop();
 
     });
 
-    //reach out for more search results 
-    $('.get-more-results').on('click', function() {
-
-        let int = parseInt($('.page').text()) + 1
-        let query = $('.source-query').text()
-            getMoreResults(query,int)
-
-        $('.page').text(int)
-
-        scrollTop();
-
-    })
 
     // scroll to top of page
     $('#top').on('click',function(){
