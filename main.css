@@ -220,7 +220,7 @@ input[type=submit] {
 
 /* footer information */
 footer {
-  height:70px;
+  height:100px;
   width:100%;
   text-align: center;
   background-color: black;
@@ -237,6 +237,22 @@ footer {
   cursor: pointer
 }
 
+.icon {
+    display: inline-block;
+    color: white;
+}
+
+i {
+    text-align:center;
+    color:white;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.block {
+    display: block;
+    text-align: center;
+}
 
 
 /*specifications for mobile*/
